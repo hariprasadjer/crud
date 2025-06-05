@@ -1,0 +1,21 @@
+@model Order
+@{
+    ViewData["Title"] = "Order Details";
+}
+<h1>Order Details</h1>
+<div>
+    <h4>Order #@Model.OrderId</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Product</dt>
+        <dd class="col-sm-10">@Model.Product?.Name</dd>
+        <dt class="col-sm-2">Quantity</dt>
+        <dd class="col-sm-10">@Model.Quantity</dd>
+        <dt class="col-sm-2">Order Date</dt>
+        <dd class="col-sm-10">@Model.OrderDate.ToShortDateString()</dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.OrderId">Edit</a> |
+    <a class="btn btn-secondary" asp-action="Index">Back to List</a>
+</div>
